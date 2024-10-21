@@ -11,7 +11,8 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background-color: #e0f2f1; /* Light teal green background */
+    background-color: #e0f2f1;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 main {
@@ -32,10 +33,12 @@ main {
     align-items: center;
     flex-wrap: wrap;
     transition: all 0.3s ease;
+    overflow-x: hidden; 
 }
 
 .card {
     width: 100px;
+    max-width: 100%; 
     aspect-ratio: 1;
     padding: 10px;
     border-radius: 10px;
@@ -43,7 +46,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #00897b; 
+    border: 2px solid #00897b;
     background-color: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
@@ -51,7 +54,7 @@ main {
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    background-color: #b2dfdb; 
+    background-color: #b2dfdb;
 }
 
 .pagination {
@@ -70,20 +73,20 @@ button {
     border-radius: 10px;
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-    border: 2px solid #00897b; 
-    background-color: #e0f2f1; 
+    border: 2px solid #00897b;
+    background-color: #e0f2f1;
 }
 
 button.active {
     background-color: #004d40;
     color: white;
-    border: 2px solid #004d40; 
+    border: 2px solid #004d40;
     transform: scale(1.1);
 }
 
 button:hover {
     transform: translateY(-4px);
-    background-color: #80cbc4; 
+    background-color: #80cbc4;
 }
 
 .fade-out {
@@ -100,10 +103,12 @@ button:hover {
     .content {
         flex-direction: column;
         gap: 15px;
+        align-items: stretch;
     }
 
     .card {
-        width: 80%;
+        width: 60%;
+        max-width: 100%;
     }
 
     button {
@@ -113,6 +118,11 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     .card {
         width: 100%;
     }
